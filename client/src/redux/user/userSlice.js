@@ -20,7 +20,7 @@ export const userSlice = createSlice({
     },
     signInFailure: (state, action) => {
       state.loading = false;
-      state.error = action.payload;
+      state.error = action.payload ?? "Something went wrong!";
     },
     updateUserStart: (state) => {
       state.loading = true;
@@ -32,7 +32,7 @@ export const userSlice = createSlice({
     },
     updateUserFailure: (state, action) => {
       state.loading = false;
-      state.error = action.payload;
+      state.error = action.payload ?? "Something went wrong!";
     },
     deleteUserStart: (state) => {
       state.loading = true;
@@ -44,7 +44,7 @@ export const userSlice = createSlice({
     },
     deleteUserFailure: (state, action) => {
       state.loading = false;
-      state.error = action.payload;
+      state.error = action.payload ?? "Something went wrong!";
     },
     signOut: (state) => {
       state.currentUser = null;

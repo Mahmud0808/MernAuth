@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "checkJs": true,
     "jsx": "react",
-    "lib": ["dom", "es2015"]
-  }
+    "lib": ["dom", "es2015"],
+    "module": "es2022",
+    "moduleResolution": "Node",
+    "types": ["node", "vite/client"],
+  },
+  "exclude": ["node_modules", "dist"]
 }
