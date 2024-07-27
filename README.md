@@ -18,7 +18,6 @@
      <b>MernAuth</b> is a base template for adding authentication to any MERN (MongoDB, Express, React.js, Node.js) project using React.js, JWT, Redux Toolkit, and cookies. This project covers crucial aspects to ensure your success in implementing robust authentication and CRUD operations.
   </div>
   <br />
-  <br />
   <a href="https://mernauth-mwjp.onrender.com/"><strong>➥ Visit MernAuth App</strong></a>
 </div>
 
