@@ -1,3 +1,5 @@
+import { errorHandler } from "../utils/error.js";
+
 export const updateUser = async (req, res, next) => {
   if (req.user.id !== req.params.id) {
     return next(errorHandler(401, "You can update only your account!"));

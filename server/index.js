@@ -27,6 +27,18 @@ app.use(bodyParser.urlencoded({ extended: false })); // Parses URL-encoded data 
 app.use(bodyParser.json()); // Parses incoming requests with JSON payloads
 app.use(cookieParser()); // Parses cookies attached to the client request object
 
+// Define the path to the client directory
+const __dirname = path.resolve();
+const clientPath = path.join(__dirname, "../client");
+
+// Serve static files from the client directory
+app.use(express.static(clientPath));
+
+// Serve the index.html file for any unmatched routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(clientPath, "index.html"));
+});
+
 // Start the server
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
