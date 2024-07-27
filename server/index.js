@@ -29,7 +29,7 @@ app.use(cookieParser()); // Parses cookies attached to the client request object
 
 // Define the path to the client directory
 const __dirname = path.resolve();
-const clientPath = path.join(__dirname, "../client");
+const clientPath = path.join(__dirname, "../client/dist");
 
 // Serve static files from the client directory
 app.use(express.static(clientPath));
