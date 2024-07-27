@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -10,10 +10,16 @@ import { useDispatch, useSelector } from "react-redux";
 import OAuth from "../components/OAuth";
 
 export default function SignIn() {
-  const [formData, setFormData] = useState({});
-  const { loading, error } = useSelector((state) => state.user);
-
   const navigate = useNavigate();
+  const { currentUser, loading, error } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/");
+    }
+  }, [currentUser, navigate]);
+
+  const [formData, setFormData] = useState({});
   const dispatch = useDispatch();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -40,7 +46,7 @@ export default function SignIn() {
       }
 
       dispatch(signInSuccess(data));
-      
+
       navigate("/");
     } catch (error) {
       dispatch(signInFailure(error));
